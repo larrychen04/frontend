@@ -1,0 +1,47 @@
+@import "../../bootstrap/mixins/fonts";
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+.mb-20{
+    margin-bottom: 20px;
+}
+.mt-0{
+    margin-top: 0px;
+}
+.mt-50{
+    margin-top: 50px;
+}
+.ml-5{
+    margin-left: 5px;
+}
+.mr-5{
+    margin-right: 5px;
+}
+.pb-0{
+    padding-bottom: 0px;
+}
+.pt-0{
+    padding-top: 0px;
+}
+.pbi-0{
+    padding-bottom: 0px !important;
+}
+.pti-0{
+    padding-top:0px !important;
+}
+.pbti-0{
+    padding-bottom: 0px !important;
+    padding-top: 0px !important;
+}
+.hide{
+    display: none;
+}
+a{
+    @include openSansSemibold;
+    &:hover,
+    &:focus {
+        cursor: pointer;
+        text-decoration: none;
+    }
+}

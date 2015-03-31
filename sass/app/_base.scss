@@ -1,0 +1,37 @@
+@import "vars";
+
+$clean-up: false !default;
+$normal: sprite-map("sprites/normal/*.png", $layout: vertical, $spacing: 20px, $cleanup: $clean-up);
+$retina: sprite-map("sprites/retina/*.png", $layout: vertical, $spacing: 20px, $cleanup: $clean-up);
+
+@import "../helper/_spriteBg";
+
+@import 'elements/style';
+@import 'modules/style';
+@import 'pages/style';
+@import 'modules/overlays';
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin: 0 0 80px; /* bottom = footer height */
+    background: $gray-light;
+    /*visibility:hidden;*/
+}
+
+@media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
+  .chrome-mac-font {
+    -webkit-font-smoothing : antialiased !important;
+    -webkit-text-stroke-width: 0.2px !important;
+  }
+}
+
+html.wf-active{
+    body{
+        visibility:visible;
+    }
+}
+

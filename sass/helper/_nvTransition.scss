@@ -1,0 +1,13 @@
+@import "compass/css3/transition";
+@mixin nvTransition($property:all,$duration:0.1s,$delay:0s,$isHover:false,$fxn:ease-out ) {
+    -webkit-backface-visibility: hidden;/** prevent ios flickers **/
+    @include transition-property(#{$property});
+    @include transition-duration($duration);
+    @include transition-timing-function($fxn);
+    @include transition-delay($delay);
+    @if $isHover == true {
+        &:hover{
+            @include transition-delay($delay + 0.1s);
+        }
+    }
+}

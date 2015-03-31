@@ -1,0 +1,78 @@
+$cGrey7     : #4d4e51;
+$cWhite     : #fff;
+@import "../../helper/nvTransition";
+
+@mixin _overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x:hidden;
+    top: 0px;
+    left: 0px;
+
+    background-color: transparentize($cGrey7, 0.2);
+
+    opacity: 0;
+    > .shadow{
+        cursor: image-url('close-cursor.cur'), pointer;
+        position: fixed;
+        width: 1000px;
+        left: 0px;
+        top: 0px;
+        height:100%;
+    }
+
+    z-index: 1000;
+
+}
+
+@mixin _overlayContent {
+    margin: 30px auto;
+    width:500px;
+    height:400px;
+    opacity: 0;
+    background: $cWhite;
+    cursor: default;
+}
+
+@mixin _overlayCloseButton {
+
+    position: absolute;
+    right: 640px + 30px;
+    top: 30px;
+    display: block;
+
+    border-radius: 30px;
+    border: 3px solid $cWhite;
+    padding: 6px;
+
+    i {
+        @include use-sprite("Close");
+        display: block;
+
+    }
+
+    @include opacity(0);
+
+}
+.overlay-enabled {
+    .overlay-window{
+        opacity: 1;
+    }
+}
+.overlay-window {
+    @include _overlay;
+    > section {
+
+        @include _overlayContent;
+        display: block;
+    }
+
+
+    > .close {
+        @include _overlayCloseButton;
+    }
+
+
+}

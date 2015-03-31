@@ -1,0 +1,34 @@
+@import "compass/css3";
+@import "compass";
+
+@mixin use-sprite($sprite) {
+    background-image: sprite-url($normal);
+    background-position: sprite-position($normal, $sprite);
+    background-repeat: no-repeat;
+    overflow: hidden;
+    display: block;
+    height: image-height(sprite-file($normal, $sprite));
+    width: image-width(sprite-file($normal, $sprite));
+
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+        background-image: sprite-url($retina);
+        background-size: (image-width(sprite-path($retina)) / 2) (image-height(sprite-path($retina)) / 2);
+        background-position: round(nth(sprite-position($retina, $sprite), 1) / 2) round(nth(sprite-position($retina, $sprite), 2) / 2);
+        height: image-height(sprite-file($retina, $sprite)) / 2;
+        width: image-width(sprite-file($retina, $sprite)) / 2;
+    }
+}
+
+@mixin background-retina($normal, $retina, $contain: false) {
+    background-image: image-url($normal);
+
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+        background-image: image-url($retina);
+
+        @if $contain == true {
+            background-size: contain;
+        } @else {
+            background-size: (image-width($retina) / 2) (image-height($retina) / 2);
+        }
+    }
+}

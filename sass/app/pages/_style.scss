@@ -1,0 +1,24 @@
+@import "../vars";
+@import "../mixins/register";
+@import "../../bootstrap/mixins/fonts";
+
+body.register,body.following, body.test{
+    header, footer {
+        .container > .row{
+            padding:0px 20px;
+        }
+    }
+
+    @include section;
+    
+    section.info{
+        @include register-info;
+    }
+    section.space{
+        height: 50px;
+    }
+}
+
+@import "register";
+@import "following";
+

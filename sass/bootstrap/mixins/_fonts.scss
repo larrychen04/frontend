@@ -1,0 +1,20 @@
+//font
+
+@mixin font($name,$baseFont,$weight){
+    font-family: $name, $baseFont;
+    font-weight: $weight;
+    font-style: normal;
+}
+
+@mixin openSansLight(){
+    @include font($openSans, $baseFont, 300);
+}
+
+@mixin openSansNormal() {
+    @include font($openSans, $baseFont, 400);
+}
+
+@mixin openSansSemibold(){
+   @include font($openSans, $baseFont, 600); 
+}
+
